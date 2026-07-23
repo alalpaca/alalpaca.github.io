@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import ScrollReveal from '../../components/ScrollReveal';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('en');
+
+const experiences = [
+  {
+    company: 'Company Name',
+    role: 'Senior Software Engineer',
+    period: '2022 - Present',
+    description: 'Led development of key product features, mentored junior developers, and improved system performance by 40%.',
+  },
+  {
+    company: 'Previous Company',
+    role: 'Software Engineer',
+    period: '2020 - 2022',
+    description: 'Built scalable microservices, implemented CI/CD pipelines, and contributed to open-source projects.',
+  },
+  {
+    company: 'First Company',
+    role: 'Junior Developer',
+    period: '2018 - 2020',
+    description: 'Developed frontend features with React, collaborated with design teams, and participated in agile ceremonies.',
+  },
+];
+
+const skills = [
+  { category: 'Frontend', items: ['React', 'Vue', 'TypeScript', 'Tailwind CSS', 'Next.js'] },
+  { category: 'Backend', items: ['Node.js', 'Python', 'PostgreSQL', 'REST APIs', 'GraphQL'] },
+  { category: 'Tools', items: ['Git', 'Docker', 'AWS', 'CI/CD', 'Linux'] },
+  { category: 'Soft Skills', items: ['Problem Solving', 'Communication', 'Leadership', 'Mentoring'] },
+];
+
+const education = [
+  {
+    school: 'University Name',
+    degree: 'Master of Computer Science',
+    period: '2016 - 2018',
+  },
+  {
+    school: 'University Name',
+    degree: 'Bachelor of Computer Science',
+    period: '2012 - 2016',
+  },
+];
+---
+
+<Layout title="About | Your Name" description="Learn more about me - my experience, skills, and education">
+  <Navbar />
+
+  <main class="flex-1 pt-20 md:pt-24">
+    <!-- Header -->
+    <section class="section-padding pb-12">
+      <div class="container-custom">
+        <ScrollReveal client:visible>
+          <div class="max-w-2xl">
+            <h1 class="heading-1 mb-4">{t('about.title')}</h1>
+            <p class="text-body text-lg">{t('about.intro')}</p>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="pb-16 md:pb-20">
+      <div class="container-custom">
+        <ScrollReveal client:visible>
+          <h2 class="heading-2 mb-8">{t('about.experience.title')}</h2>
+        </ScrollReveal>
+
+        <div class="relative space-y-8 before:absolute before:left-[7px] before:top-2 before:h-[calc(100%-16px)] before:w-px before:bg-gray-200 md:before:left-[calc(200px+7px)]">
+          {experiences.map((exp, index) => (
+            <ScrollReveal client:visible delay={index * 0.15} direction="left">
+              <div class="relative pl-8 md:pl-0 md:grid md:grid-cols-[200px_1fr] md:gap-8">
+                <div class="mb-1 text-sm font-medium text-gray-400 md:text-right md:pt-1">
+                  {exp.period}
+                </div>
+                <div class="relative md:pl-8">
+                  <div class="absolute left-[-25px] top-2 h-3.5 w-3.5 rounded-full border-2 border-primary-400 bg-white md:left-[-7px]"></div>
+                  <h3 class="text-lg font-semibold text-gray-900">{exp.role}</h3>
+                  <p class="text-sm font-medium text-primary-600">{exp.company}</p>
+                  <p class="mt-2 text-sm text-gray-500 leading-relaxed">{exp.description}</p>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section-padding bg-gray-50/50">
+      <div class="container-custom">
+        <ScrollReveal client:visible>
+          <h2 class="heading-2 mb-10">{t('about.skills.title')}</h2>
+        </ScrollReveal>
+
+        <div class="grid gap-6 sm:grid-cols-2">
+          {skills.map((skill, index) => (
+            <ScrollReveal client:visible delay={index * 0.1} direction="up">
+              <div class="card">
+                <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
+                  {skill.category}
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                  {skill.items.map((item) => (
+                    <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <ScrollReveal client:visible>
+          <h2 class="heading-2 mb-8">{t('about.education.title')}</h2>
+        </ScrollReveal>
+
+        <div class="space-y-6">
+          {education.map((edu, index) => (
+            <ScrollReveal client:visible delay={index * 0.15} direction="up">
+              <div class="card">
+                <h3 class="text-lg font-semibold text-gray-900">{edu.degree}</h3>
+                <p class="text-sm font-medium text-primary-600">{edu.school}</p>
+                <p class="mt-1 text-sm text-gray-400">{edu.period}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

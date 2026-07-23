@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ScrollReveal from '../../components/ScrollReveal';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('zh');
+
+const projects = [
+  {
+    title: '项目 Alpha',
+    description: '使用现代技术构建的全栈 Web 应用，具有实时数据可视化和协作编辑功能。',
+    tags: ['React', 'Node.js', 'PostgreSQL', 'WebSocket'],
+    projectUrl: '#',
+    codeUrl: '#',
+  },
+  {
+    title: '项目 Beta',
+    description: '移动优先的渐进式 Web 应用，支持离线使用、推送通知和跨设备无缝同步。',
+    tags: ['TypeScript', 'PWA', 'Tailwind CSS', 'IndexedDB'],
+    projectUrl: '#',
+    codeUrl: '#',
+  },
+  {
+    title: '项目 Gamma',
+    description: '一个自动化开发工作流的开源命令行工具，有效减少重复性任务，提升团队生产力。',
+    tags: ['Python', 'CLI', '自动化', '开源'],
+    projectUrl: '#',
+    codeUrl: '#',
+  },
+  {
+    title: '项目 Delta',
+    description: '用于客户评论情感分析的机器学习流水线，配有简洁的仪表板用于实时洞察。',
+    tags: ['Python', 'ML', 'FastAPI', 'React'],
+    projectUrl: '#',
+    codeUrl: '#',
+  },
+];
+---
+
+<Layout title="项目 | 你的名字" description="精选作品与个人项目">
+  <Navbar />
+
+  <main class="flex-1 pt-20 md:pt-24">
+    <section class="section-padding">
+      <div class="container-custom">
+        <!-- Header -->
+        <ScrollReveal client:visible>
+          <div class="mb-12 max-w-2xl">
+            <h1 class="heading-1 mb-4">{t('projects.title')}</h1>
+            <p class="text-body">{t('projects.subtitle')}</p>
+          </div>
+        </ScrollReveal>
+
+        <!-- Project Grid -->
+        <div class="grid gap-6 sm:grid-cols-2">
+          {projects.map((project, index) => (
+            <ScrollReveal client:visible delay={index * 0.12} direction="up">
+              <ProjectCard {...project} />
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import Gallery from '../../components/Gallery';
+import ScrollReveal from '../../components/ScrollReveal';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('zh');
+
+// Placeholder images using picsum.photos (replace with your own images)
+const images = [
+  { src: 'https://picsum.photos/seed/photo1/600/400', alt: '风景摄影', category: '旅行' },
+  { src: 'https://picsum.photos/seed/photo2/600/800', alt: '黄昏城市天际线', category: '旅行' },
+  { src: 'https://picsum.photos/seed/photo3/600/500', alt: '山间徒步小径', category: '自然' },
+  { src: 'https://picsum.photos/seed/photo4/600/600', alt: '咖啡与编程', category: '生活' },
+  { src: 'https://picsum.photos/seed/photo5/600/450', alt: '海上日落', category: '自然' },
+  { src: 'https://picsum.photos/seed/photo6/600/700', alt: '街头摄影', category: '旅行' },
+  { src: 'https://picsum.photos/seed/photo7/600/400', alt: '家庭工作空间', category: '生活' },
+  { src: 'https://picsum.photos/seed/photo8/600/550', alt: '秋日森林小径', category: '自然' },
+  { src: 'https://picsum.photos/seed/photo9/600/650', alt: '厨房烹饪', category: '生活' },
+];
+
+const categories = ['旅行', '自然', '生活'];
+---
+
+<Layout title="画廊 | 你的名字" description="照片画廊 - 镜头下的每一个瞬间">
+  <Navbar />
+
+  <main class="flex-1 pt-20 md:pt-24">
+    <section class="section-padding">
+      <div class="container-custom">
+        <!-- Header -->
+        <ScrollReveal client:visible>
+          <div class="mb-12 text-center">
+            <h1 class="heading-1 mb-4">{t('gallery.title')}</h1>
+            <p class="text-body">{t('gallery.subtitle')}</p>
+          </div>
+        </ScrollReveal>
+
+        <!-- Gallery Component -->
+        <ScrollReveal client:visible delay={0.2}>
+          <Gallery client:visible images={images} categories={categories} />
+        </ScrollReveal>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

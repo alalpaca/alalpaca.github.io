@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ScrollReveal from '../../components/ScrollReveal';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('en');
+
+const projects = [
+  {
+    title: 'Project Alpha',
+    description: 'A full-stack web application built with modern technologies. Features real-time data visualization and collaborative editing capabilities.',
+    tags: ['React', 'Node.js', 'PostgreSQL', 'WebSocket'],
+    projectUrl: '#',
+    codeUrl: '#',
+  },
+  {
+    title: 'Project Beta',
+    description: 'Mobile-first progressive web app for task management with offline support, push notifications, and seamless sync across devices.',
+    tags: ['TypeScript', 'PWA', 'Tailwind CSS', 'IndexedDB'],
+    projectUrl: '#',
+    codeUrl: '#',
+  },
+  {
+    title: 'Project Gamma',
+    description: 'An open-source CLI tool that automates development workflows and improves team productivity by reducing repetitive tasks.',
+    tags: ['Python', 'CLI', 'Automation', 'Open Source'],
+    projectUrl: '#',
+    codeUrl: '#',
+  },
+  {
+    title: 'Project Delta',
+    description: 'Machine learning pipeline for sentiment analysis on customer reviews, featuring a clean dashboard for real-time insights.',
+    tags: ['Python', 'ML', 'FastAPI', 'React'],
+    projectUrl: '#',
+    codeUrl: '#',
+  },
+];
+---
+
+<Layout title="Projects | Your Name" description="Selected works and side projects">
+  <Navbar />
+
+  <main class="flex-1 pt-20 md:pt-24">
+    <section class="section-padding">
+      <div class="container-custom">
+        <!-- Header -->
+        <ScrollReveal client:visible>
+          <div class="mb-12 max-w-2xl">
+            <h1 class="heading-1 mb-4">{t('projects.title')}</h1>
+            <p class="text-body">{t('projects.subtitle')}</p>
+          </div>
+        </ScrollReveal>
+
+        <!-- Project Grid -->
+        <div class="grid gap-6 sm:grid-cols-2">
+          {projects.map((project, index) => (
+            <ScrollReveal client:visible delay={index * 0.12} direction="up">
+              <ProjectCard {...project} />
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

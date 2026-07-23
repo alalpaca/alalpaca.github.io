@@ -1,0 +1,122 @@
+---
+import { getLangFromUrl, useTranslations, switchLang } from '../i18n/utils';
+import { languages } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: `/${lang}`, label: t('nav.home') },
+  { href: `/${lang}/about`, label: t('nav.about') },
+  { href: `/${lang}/projects`, label: t('nav.projects') },
+  { href: `/${lang}/gallery`, label: t('nav.gallery') },
+];
+
+const otherLang = lang === 'en' ? 'zh' : 'en';
+const otherLangLabel = languages[otherLang];
+const switchPath = switchLang(currentPath, otherLang);
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100/50 transition-all duration-300" id="navbar">
+  <div class="container-custom">
+    <div class="flex h-16 items-center justify-between md:h-20">
+      <!-- Logo -->
+      <a href={`/${lang}`} class="text-xl font-bold tracking-tight text-gray-900 transition-colors hover:text-primary-600">
+        Portfolio
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden items-center gap-1 md:flex">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 ${
+              currentPath === link.href || (link.href !== `/${lang}` && currentPath.startsWith(link.href))
+                ? 'bg-primary-50 text-primary-600'
+                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+
+        <!-- Language Switch -->
+        <a
+          href={switchPath}
+          class="ml-4 rounded-lg border border-gray-200 px-3 py-1.5 text-sm font-medium text-gray-600 transition-all duration-200 hover:border-primary-300 hover:text-primary-600"
+        >
+          {otherLangLabel}
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="flex items-center justify-center rounded-lg p-2 text-gray-600 transition-colors hover:bg-gray-50 md:hidden"
+        aria-label="Toggle menu"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden border-t border-gray-100 bg-white/95 backdrop-blur-lg md:hidden">
+    <div class="container-custom py-4 space-y-1">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`block rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 ${
+            currentPath === link.href || (link.href !== `/${lang}` && currentPath.startsWith(link.href))
+              ? 'bg-primary-50 text-primary-600'
+              : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href={switchPath}
+        class="block rounded-lg px-4 py-2.5 text-sm font-medium text-gray-600 transition-all duration-200 hover:bg-gray-50 hover:text-gray-900"
+      >
+        {otherLangLabel}
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = !mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden');
+    if (isOpen) {
+      menuIcon?.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+    } else {
+      menuIcon?.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+    }
+  });
+
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    
+    if (currentScroll > 50) {
+      navbar?.classList.add('shadow-sm');
+    } else {
+      navbar?.classList.remove('shadow-sm');
+    }
+
+    lastScroll = currentScroll;
+  });
+</script>
