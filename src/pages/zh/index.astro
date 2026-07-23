@@ -11,30 +11,30 @@ const t = useTranslations('zh');
 
 const featuredProjects = [
   {
-    title: '项目 Alpha',
-    description: '使用现代技术构建的全栈 Web 应用，具有实时数据可视化和协作编辑功能。',
-    tags: ['React', 'Node.js', 'PostgreSQL'],
+    title: 'RAG 知识库更新 Pipeline',
+    description: '端到端 RAG 知识库更新流水线，集成 Power Automate 自动触发、MinerU 文档解析与 LightRAG/RAGAnything 双链路入库，支持全流程状态监控。',
+    tags: ['RAG', 'LightRAG', 'Power Automate', 'SQLite'],
     projectUrl: '#',
     codeUrl: '#',
   },
   {
-    title: '项目 Beta',
-    description: '移动优先的渐进式 Web 应用，支持离线使用、推送通知和多设备同步。',
-    tags: ['TypeScript', 'PWA', 'Tailwind'],
+    title: 'PLC 报警诊断 Agent',
+    description: '基于 LangGraph 的工业 PLC 报警诊断 ReAct Agent，解析 29 个子程序含 6820 条因果边，实现跨程序报警因果链自动回溯。',
+    tags: ['LangGraph', 'ReAct Agent', 'Gradio', 'FastAPI'],
     projectUrl: '#',
     codeUrl: '#',
   },
   {
-    title: '项目 Gamma',
-    description: '一个自动化开发工作流的开源命令行工具，有效提升团队生产力。',
-    tags: ['Python', 'CLI', '自动化'],
+    title: '短期股价预测系统',
+    description: '多模态股票预测框架，融合金融新闻、市场数据和技术指标，使用 FinBERT 和时序神经网络实现短期股价预测。',
+    tags: ['FinBERT', 'LSTM/GRU/TCN', '多模态', '深度学习'],
     projectUrl: '#',
     codeUrl: '#',
   },
 ];
 ---
 
-<Layout title="首页 | 你的名字" description="个人作品集网站">
+<Layout title="首页 | 王云飞" description="王云飞的个人作品集网站 - AI 工程师 & 机器学习开发者">
   <Navbar />
 
   <main class="flex-1">
@@ -79,7 +79,7 @@ const featuredProjects = [
           <div class="mx-auto max-w-2xl text-center">
             <h2 class="heading-2 mb-4">{t('contact.title')}</h2>
             <p class="text-body mb-8">{t('contact.description')}</p>
-            <a href="mailto:your.email@example.com" class="btn-primary">
+            <a href="mailto:yunfeiwa@usc.edu" class="btn-primary">
               {t('contact.email')}
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />

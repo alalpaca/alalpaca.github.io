@@ -9,47 +9,71 @@ const t = useTranslations('zh');
 
 const experiences = [
   {
-    company: '公司名称',
-    role: '高级软件工程师',
-    period: '2022 - 至今',
-    description: '主导核心产品功能开发，指导初级开发人员，将系统性能提升 40%。',
+    company: '康宁公司 (Corning Incorporated)',
+    role: '数据分析工程师实习生, MT&E',
+    period: '2026.05 - 2026.08',
+    location: '中国上海',
+    description: [
+      '主导设计并实现端到端 RAG 知识库更新 Pipeline，集成 Power Automate 自动触发、MinerU 文档解析与 LightRAG/RAGAnything 双链路入库，引入 SQLite 实现全流程状态监控与错误重试；深入修改开源框架源码，实现知识库节点按文件精确删除。',
+      '基于 LangGraph 构建工业 PLC 报警诊断 ReAct Agent，解析三菱 Q 系列 PLC 29 个子程序（含 6820 条因果边），实现跨程序报警因果链自动回溯至物理 I/O 层，搭配 Gradio 前端与 FastAPI 接口交付完整系统。',
+      '设计 PPT One Page 文件三源融合解析方案（python-pptx + PyMuPDF + VLM），实现结构化内容 100% 精准提取并输出标准化 JSON/Markdown，为 LLM Wiki 知识库构建奠定数据基础。',
+    ],
   },
   {
-    company: '上一家公司',
-    role: '软件工程师',
-    period: '2020 - 2022',
-    description: '构建可扩展的微服务架构，实施 CI/CD 流水线，参与开源项目贡献。',
+    company: '申万宏源证券',
+    role: '机器学习工程师实习生',
+    period: '2024.06 - 2024.08',
+    location: '中国上海',
+    description: [
+      '研究并测试大语言模型（Chatglm4-9b、InternVL2-40b）在金融数据标注中的应用，使用 Postman 进行 API 接口测试。',
+      '开发自动化金融数据标注解决方案，包括 Python 脚本设计、Prompt 工程和模型微调，支持后续生产部署。',
+    ],
   },
   {
-    company: '第一家公司',
-    role: '初级开发者',
-    period: '2018 - 2020',
-    description: '使用 React 开发前端功能，与设计团队紧密协作，参与敏捷开发流程。',
+    company: '上海大学',
+    role: '科研助理',
+    period: '2023.05 - 2025.06',
+    location: '中国上海',
+    description: [
+      '设计面向科学文献的端到端自动实体标注系统，融合基于规则的 NLP、深度学习（BiLSTM-CRF）和大模型方法（OneKE）。',
+      '构建多模型集成 + 置信度融合 + RoBERTa 验证器流水线，标注精度达 ~83%，使用 Django 和 Vue3 部署为生产系统。',
+    ],
   },
 ];
 
 const skills = [
-  { category: '前端', items: ['React', 'Vue', 'TypeScript', 'Tailwind CSS', 'Next.js'] },
-  { category: '后端', items: ['Node.js', 'Python', 'PostgreSQL', 'REST APIs', 'GraphQL'] },
-  { category: '工具', items: ['Git', 'Docker', 'AWS', 'CI/CD', 'Linux'] },
-  { category: '软技能', items: ['问题解决', '沟通协作', '团队领导', '技术指导'] },
+  { category: 'AI / ML', items: ['Python', 'PyTorch', 'LangGraph', 'RAG', 'NLP', '深度学习', 'LLM', 'FinBERT'] },
+  { category: '前端', items: ['JavaScript', 'HTML', 'CSS', 'Vue3', 'React', 'Gradio'] },
+  { category: '后端', items: ['FastAPI', 'Django', 'Node.js', 'SQLite', 'PostgreSQL'] },
+  { category: '工具 & 系统', items: ['Git', 'Linux', 'Docker', 'MATLAB', 'C++', 'Power Automate'] },
 ];
 
 const education = [
   {
-    school: '大学名称',
-    degree: '计算机科学硕士',
-    period: '2016 - 2018',
+    school: '南加州大学 (USC)',
+    degree: '计算机科学硕士（人工智能方向）',
+    period: '2025.09 - 2027.05',
+    gpa: 'GPA: 3.82/4.0',
   },
   {
-    school: '大学名称',
-    degree: '计算机科学学士',
-    period: '2012 - 2016',
+    school: '上海大学',
+    degree: '人工智能学士',
+    period: '2021.09 - 2025.06',
+    gpa: 'GPA: 3.45/4.0',
   },
+];
+
+const honors = [
+  { title: '金奖', org: '中国国际大学生创新大赛', year: '2024' },
+  { title: 'Meritorious Winner', org: '美国大学生数学建模竞赛 (MCM)', year: '2023' },
+  { title: '二等奖', org: '第24届中国机器人及人工智能大赛', year: '2022' },
+  { title: '论文发表', org: 'arXiv:2505.19879 - 基于 N1 和 LPP 成分的人类偏好研究', year: '2025' },
+  { title: '软件著作权', org: '文献信息自动标注与挖掘平台 V1.0', year: '2024' },
+  { title: '奖学金', org: '领导力奖学金、学业优秀奖学金、自强不息奖学金', year: '2021-2025' },
 ];
 ---
 
-<Layout title="关于我 | 你的名字" description="了解更多关于我的信息 - 工作经历、技能和教育背景">
+<Layout title="关于我 | 王云飞" description="了解更多关于王云飞的信息 - AI/ML 工程师，工作经历、技能和教育背景">
   <Navbar />
 
   <main class="flex-1 pt-20 md:pt-24">
@@ -72,19 +96,27 @@ const education = [
           <h2 class="heading-2 mb-8">{t('about.experience.title')}</h2>
         </ScrollReveal>
 
-        <div class="relative space-y-8 before:absolute before:left-[7px] before:top-2 before:h-[calc(100%-16px)] before:w-px before:bg-gray-200 md:before:left-[calc(200px+7px)]">
+        <div class="space-y-8">
           {experiences.map((exp, index) => (
             <ScrollReveal client:visible delay={index * 0.15} direction="left">
-              <div class="relative pl-8 md:pl-0 md:grid md:grid-cols-[200px_1fr] md:gap-8">
-                <div class="mb-1 text-sm font-medium text-gray-400 md:text-right md:pt-1">
-                  {exp.period}
+              <div class="card">
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-900">{exp.role}</h3>
+                    <p class="text-sm font-medium text-primary-600">{exp.company}</p>
+                  </div>
+                  <div class="mt-1 sm:mt-0 sm:text-right">
+                    <p class="text-sm text-gray-400">{exp.period}</p>
+                    <p class="text-xs text-gray-400">{exp.location}</p>
+                  </div>
                 </div>
-                <div class="relative md:pl-8">
-                  <div class="absolute left-[-25px] top-2 h-3.5 w-3.5 rounded-full border-2 border-primary-400 bg-white md:left-[-7px]"></div>
-                  <h3 class="text-lg font-semibold text-gray-900">{exp.role}</h3>
-                  <p class="text-sm font-medium text-primary-600">{exp.company}</p>
-                  <p class="mt-2 text-sm text-gray-500 leading-relaxed">{exp.description}</p>
-                </div>
+                <ul class="space-y-2">
+                  {exp.description.map((item) => (
+                    <li class="text-sm text-gray-500 leading-relaxed pl-4 relative before:absolute before:left-0 before:top-2 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-300">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </ScrollReveal>
           ))}
@@ -131,9 +163,43 @@ const education = [
           {education.map((edu, index) => (
             <ScrollReveal client:visible delay={index * 0.15} direction="up">
               <div class="card">
-                <h3 class="text-lg font-semibold text-gray-900">{edu.degree}</h3>
-                <p class="text-sm font-medium text-primary-600">{edu.school}</p>
-                <p class="mt-1 text-sm text-gray-400">{edu.period}</p>
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-900">{edu.degree}</h3>
+                    <p class="text-sm font-medium text-primary-600">{edu.school}</p>
+                  </div>
+                  <div class="mt-1 sm:mt-0 sm:text-right">
+                    <p class="text-sm text-gray-400">{edu.period}</p>
+                    <p class="text-sm font-medium text-gray-500">{edu.gpa}</p>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Honors & Awards -->
+    <section class="section-padding bg-gray-50/50">
+      <div class="container-custom">
+        <ScrollReveal client:visible>
+          <h2 class="heading-2 mb-8">荣誉与奖项</h2>
+        </ScrollReveal>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          {honors.map((honor, index) => (
+            <ScrollReveal client:visible delay={index * 0.1} direction="up">
+              <div class="card">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h3 class="text-base font-semibold text-gray-900">{honor.title}</h3>
+                    <p class="mt-1 text-sm text-gray-500">{honor.org}</p>
+                  </div>
+                  <span class="shrink-0 ml-3 rounded-full bg-primary-50 px-2.5 py-0.5 text-xs font-medium text-primary-700">
+                    {honor.year}
+                  </span>
+                </div>
               </div>
             </ScrollReveal>
           ))}

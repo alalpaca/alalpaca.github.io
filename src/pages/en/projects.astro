@@ -10,37 +10,37 @@ const t = useTranslations('en');
 
 const projects = [
   {
-    title: 'Project Alpha',
-    description: 'A full-stack web application built with modern technologies. Features real-time data visualization and collaborative editing capabilities.',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'WebSocket'],
+    title: 'RAG Knowledge Base Pipeline',
+    description: 'Designed and implemented an end-to-end RAG knowledge base update pipeline integrating Power Automate automated triggers, MinerU document parsing, and LightRAG/RAGAnything dual-path ingestion. Introduced SQLite for full-process state monitoring and error retry. Modified open-source framework source code to enable precise file-level node deletion for dynamic knowledge base updates.',
+    tags: ['RAG', 'LightRAG', 'RAGAnything', 'Power Automate', 'SQLite', 'Python'],
     projectUrl: '#',
     codeUrl: '#',
   },
   {
-    title: 'Project Beta',
-    description: 'Mobile-first progressive web app for task management with offline support, push notifications, and seamless sync across devices.',
-    tags: ['TypeScript', 'PWA', 'Tailwind CSS', 'IndexedDB'],
+    title: 'PLC Alarm Diagnosis ReAct Agent',
+    description: 'Built an industrial PLC alarm diagnosis ReAct Agent using LangGraph, parsing 29 subroutines (6,820 causal edges) of Mitsubishi Q-series PLCs. Achieved automatic cross-program alarm causal chain backtracking to the physical I/O layer, delivered with a Gradio frontend and FastAPI interface as a complete interactive system.',
+    tags: ['LangGraph', 'ReAct Agent', 'Gradio', 'FastAPI', 'Python'],
     projectUrl: '#',
     codeUrl: '#',
   },
   {
-    title: 'Project Gamma',
-    description: 'An open-source CLI tool that automates development workflows and improves team productivity by reducing repetitive tasks.',
-    tags: ['Python', 'CLI', 'Automation', 'Open Source'],
+    title: 'Short-Term Stock Price Forecasting',
+    description: 'Developed a multimodal stock forecasting framework combining financial news, market data, and technical indicators using FinBERT, temporal neural networks (LSTM/GRU/TCN), and cross-attention fusion, achieving predictive performance comparable to reported benchmarks for short-term stock movement prediction.',
+    tags: ['FinBERT', 'LSTM', 'GRU', 'TCN', 'Cross-Attention', 'PyTorch'],
     projectUrl: '#',
     codeUrl: '#',
   },
   {
-    title: 'Project Delta',
-    description: 'Machine learning pipeline for sentiment analysis on customer reviews, featuring a clean dashboard for real-time insights.',
-    tags: ['Python', 'ML', 'FastAPI', 'React'],
+    title: 'Automated Data Annotation System',
+    description: 'Designed an end-to-end automated entity annotation system for scientific literature, integrating rule-based NLP, deep learning (BiLSTM-CRF with sliding-window segmentation), and LLM-based methods (OneKE). Built a multi-model ensemble with confidence fusion and RoBERTa-based verifier, achieving ~83% annotation precision, deployed with Django and Vue3.',
+    tags: ['BiLSTM-CRF', 'RoBERTa', 'OneKE', 'Django', 'Vue3', 'NLP'],
     projectUrl: '#',
     codeUrl: '#',
   },
 ];
 ---
 
-<Layout title="Projects | Your Name" description="Selected works and side projects">
+<Layout title="Projects | Felix Wang" description="Selected AI/ML projects and research work by Felix Wang">
   <Navbar />
 
   <main class="flex-1 pt-20 md:pt-24">
