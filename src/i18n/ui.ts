@@ -59,7 +59,7 @@ export const ui = {
 
     // Hero
     'hero.greeting': '你好，我是',
-    'hero.name': '王云飞 (Felix)',
+    'hero.name': '汪蕴斐 (Felix)',
     'hero.title': 'AI 工程师 & 机器学习开发者',
     'hero.description': 'USC 人工智能硕士在读，专注 AI Agent 和 RAG 系统开发，寻找 AI/ML 相关全职机会。',
     'hero.cta': '查看我的作品',
