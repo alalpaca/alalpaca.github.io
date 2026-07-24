@@ -1,0 +1,88 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Footer from '../../../components/Footer.astro';
+import ScrollReveal from '../../../components/ScrollReveal';
+---
+
+<Layout title="RAG Knowledge Base Pipeline | Felix Wang" description="End-to-end RAG knowledge base update pipeline with automated ingestion and state monitoring">
+  <Navbar />
+
+  <main class="flex-1 pt-20 md:pt-24">
+    <section class="section-padding">
+      <div class="container-custom max-w-4xl">
+        <!-- Back link -->
+        <ScrollReveal client:visible>
+          <a href="/en/projects" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 transition-colors mb-8">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            Back to Projects
+          </a>
+        </ScrollReveal>
+
+        <!-- Title -->
+        <ScrollReveal client:visible>
+          <h1 class="heading-1 mb-4">RAG Knowledge Base Pipeline</h1>
+          <p class="text-body text-lg mb-6">End-to-end automated RAG knowledge base update system built at Corning Incorporated</p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">RAG</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">LightRAG</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">RAGAnything</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">Power Automate</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">SQLite</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">Python</span>
+          </div>
+        </ScrollReveal>
+
+        <!-- Screenshot placeholder -->
+        <ScrollReveal client:visible delay={0.1}>
+          <div class="mb-12 rounded-2xl bg-gradient-to-br from-primary-50 to-blue-50 border border-gray-100 h-64 md:h-80 flex items-center justify-center">
+            <div class="text-center text-gray-400">
+              <svg class="h-16 w-16 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a2.25 2.25 0 002.25-2.25V5.25a2.25 2.25 0 00-2.25-2.25H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+              </svg>
+              <p class="text-sm">Project screenshot coming soon</p>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <!-- Content -->
+        <ScrollReveal client:visible delay={0.2}>
+          <div class="prose prose-gray max-w-none">
+            <h2 class="heading-2 mb-4">Overview</h2>
+            <p class="text-body mb-6">
+              Designed and implemented a complete end-to-end RAG (Retrieval-Augmented Generation) knowledge base update pipeline for Corning's MT&E department. The system automates the entire lifecycle of document ingestion, parsing, and knowledge graph construction.
+            </p>
+
+            <h2 class="heading-2 mb-4 mt-10">Key Features</h2>
+            <ul class="space-y-3 mb-6">
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>Automated Trigger:</strong> Integrated Power Automate to automatically detect new documents and trigger the ingestion pipeline without manual intervention.
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>Dual-Path Ingestion:</strong> Implemented LightRAG and RAGAnything as parallel ingestion paths, supporting both structured and unstructured document types.
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>Document Parsing:</strong> Utilized MinerU for high-fidelity document parsing, handling complex layouts including tables, figures, and multi-column text.
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>State Monitoring:</strong> Built SQLite-based state tracking for the entire pipeline, enabling error retry, progress monitoring, and audit trails.
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>Dynamic Updates:</strong> Modified open-source framework source code to enable precise file-level node deletion, supporting knowledge base dynamic add/delete/update operations.
+              </li>
+            </ul>
+
+            <h2 class="heading-2 mb-4 mt-10">Technical Architecture</h2>
+            <p class="text-body mb-6">
+              The pipeline follows a modular architecture: Power Automate monitors SharePoint for new uploads, triggers a Python backend service, which then routes documents through MinerU parsing into either LightRAG (for graph-based retrieval) or RAGAnything (for multimodal content). SQLite serves as the central state store, tracking each document's processing status across all stages.
+            </p>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

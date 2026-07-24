@@ -1,0 +1,84 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Footer from '../../../components/Footer.astro';
+import ScrollReveal from '../../../components/ScrollReveal';
+---
+
+<Layout title="PLC Alarm Diagnosis Agent | Felix Wang" description="Industrial PLC alarm diagnosis ReAct Agent using LangGraph">
+  <Navbar />
+
+  <main class="flex-1 pt-20 md:pt-24">
+    <section class="section-padding">
+      <div class="container-custom max-w-4xl">
+        <!-- Back link -->
+        <ScrollReveal client:visible>
+          <a href="/en/projects" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 transition-colors mb-8">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            Back to Projects
+          </a>
+        </ScrollReveal>
+
+        <!-- Title -->
+        <ScrollReveal client:visible>
+          <h1 class="heading-1 mb-4">PLC Alarm Diagnosis ReAct Agent</h1>
+          <p class="text-body text-lg mb-6">Intelligent industrial PLC alarm root-cause analysis system built at Corning Incorporated</p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">LangGraph</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">ReAct Agent</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">Gradio</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">FastAPI</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">Python</span>
+          </div>
+        </ScrollReveal>
+
+        <!-- Screenshot placeholder -->
+        <ScrollReveal client:visible delay={0.1}>
+          <div class="mb-12 rounded-2xl bg-gradient-to-br from-primary-50 to-blue-50 border border-gray-100 h-64 md:h-80 flex items-center justify-center">
+            <div class="text-center text-gray-400">
+              <svg class="h-16 w-16 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a2.25 2.25 0 002.25-2.25V5.25a2.25 2.25 0 00-2.25-2.25H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+              </svg>
+              <p class="text-sm">Project screenshot coming soon</p>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <!-- Content -->
+        <ScrollReveal client:visible delay={0.2}>
+          <div class="prose prose-gray max-w-none">
+            <h2 class="heading-2 mb-4">Overview</h2>
+            <p class="text-body mb-6">
+              Built an intelligent ReAct Agent for industrial PLC (Programmable Logic Controller) alarm diagnosis at Corning. The agent autonomously analyzes alarm signals from Mitsubishi Q-series PLCs and traces the root cause through complex causal chains across multiple subroutines.
+            </p>
+
+            <h2 class="heading-2 mb-4 mt-10">Key Features</h2>
+            <ul class="space-y-3 mb-6">
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>Causal Graph Parsing:</strong> Parsed 29 PLC subroutines containing 6,820 causal edges, building a comprehensive cause-effect knowledge graph of the industrial control system.
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>ReAct Architecture:</strong> Implemented using LangGraph's ReAct pattern, enabling the agent to reason step-by-step and use tools to query the causal graph for root-cause identification.
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>Cross-Program Tracing:</strong> Achieved automatic backtracking across program boundaries to the physical I/O layer, identifying the ultimate hardware-level root cause.
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>Interactive UI:</strong> Delivered as a complete system with Gradio frontend for visualization and FastAPI backend for programmatic access.
+              </li>
+            </ul>
+
+            <h2 class="heading-2 mb-4 mt-10">Impact</h2>
+            <p class="text-body mb-6">
+              The system significantly reduces the time needed for engineers to diagnose PLC alarms by automatically tracing complex causal relationships that would otherwise require deep domain expertise and manual ladder logic inspection.
+            </p>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

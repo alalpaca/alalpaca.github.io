@@ -1,10 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import ProjectCard from '../../components/ProjectCard.astro';
-import ScrollReveal from '../../components/ScrollReveal';
-import { useTranslations } from '../../i18n/utils';
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Footer from '../../../components/Footer.astro';
+import ProjectCard from '../../../components/ProjectCard.astro';
+import ScrollReveal from '../../../components/ScrollReveal';
+import { useTranslations } from '../../../i18n/utils';
 
 const t = useTranslations('zh');
 
@@ -13,28 +13,28 @@ const projects = [
     title: 'RAG 知识库更新 Pipeline',
     description: '主导设计并实现端到端 RAG 知识库更新 Pipeline，集成 Power Automate 自动触发、MinerU 文档解析与 LightRAG/RAGAnything 双链路入库，引入 SQLite 实现全流程状态监控与错误重试；深入修改开源框架源码，实现知识库节点按文件精确删除，支持知识库动态增删更新。',
     tags: ['RAG', 'LightRAG', 'RAGAnything', 'Power Automate', 'SQLite', 'Python'],
-    projectUrl: '#',
+    projectUrl: '/zh/projects/rag-pipeline',
     codeUrl: '#',
   },
   {
     title: 'PLC 报警诊断 ReAct Agent',
     description: '基于 LangGraph 构建工业 PLC 报警诊断 ReAct Agent，解析三菱 Q 系列 PLC 29 个子程序（含 6820 条因果边），实现跨程序报警因果链自动回溯至物理 I/O 层，并搭配 Gradio 前端与 FastAPI 接口交付完整可交互系统。',
     tags: ['LangGraph', 'ReAct Agent', 'Gradio', 'FastAPI', 'Python'],
-    projectUrl: '#',
+    projectUrl: '/zh/projects/plc-agent',
     codeUrl: '#',
   },
   {
     title: '短期股价预测系统',
     description: '开发多模态股票预测框架，融合金融新闻、市场数据和技术指标，使用 FinBERT、时序神经网络（LSTM/GRU/TCN）和交叉注意力融合机制，实现与已报告基准相当的短期股价趋势预测性能。',
     tags: ['FinBERT', 'LSTM', 'GRU', 'TCN', '交叉注意力', 'PyTorch'],
-    projectUrl: '#',
+    projectUrl: '/zh/projects/stock-forecasting',
     codeUrl: '#',
   },
   {
     title: '科学文献自动标注系统',
     description: '设计面向科学文献的端到端自动实体标注系统，融合基于规则的 NLP、深度学习（BiLSTM-CRF + 滑动窗口分割）和大模型方法（OneKE）。构建多模型集成 + 置信度融合 + RoBERTa 验证器流水线，标注精度达 ~83%，使用 Django 和 Vue3 部署为生产系统。',
     tags: ['BiLSTM-CRF', 'RoBERTa', 'OneKE', 'Django', 'Vue3', 'NLP'],
-    projectUrl: '#',
+    projectUrl: '/zh/projects/data-annotation',
     codeUrl: '#',
   },
 ];
@@ -57,7 +57,7 @@ const projects = [
         <!-- Project Grid -->
         <div class="grid gap-6 sm:grid-cols-2">
           {projects.map((project, index) => (
-            <ScrollReveal client:visible delay={index * 0.12} direction="up">
+            <ScrollReveal client:visible delay={index * 0.12} direction="up" className="h-full">
               <ProjectCard {...project} />
             </ScrollReveal>
           ))}

@@ -1,0 +1,88 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Footer from '../../../components/Footer.astro';
+import ScrollReveal from '../../../components/ScrollReveal';
+---
+
+<Layout title="RAG 知识库更新 Pipeline | 王云飞" description="端到端 RAG 知识库自动更新流水线">
+  <Navbar />
+
+  <main class="flex-1 pt-20 md:pt-24">
+    <section class="section-padding">
+      <div class="container-custom max-w-4xl">
+        <!-- Back link -->
+        <ScrollReveal client:visible>
+          <a href="/zh/projects" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 transition-colors mb-8">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            返回项目列表
+          </a>
+        </ScrollReveal>
+
+        <!-- Title -->
+        <ScrollReveal client:visible>
+          <h1 class="heading-1 mb-4">RAG 知识库更新 Pipeline</h1>
+          <p class="text-body text-lg mb-6">在康宁公司 MT&E 部门构建的端到端自动化 RAG 知识库更新系统</p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">RAG</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">LightRAG</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">RAGAnything</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">Power Automate</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">SQLite</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">Python</span>
+          </div>
+        </ScrollReveal>
+
+        <!-- Screenshot placeholder -->
+        <ScrollReveal client:visible delay={0.1}>
+          <div class="mb-12 rounded-2xl bg-gradient-to-br from-primary-50 to-blue-50 border border-gray-100 h-64 md:h-80 flex items-center justify-center">
+            <div class="text-center text-gray-400">
+              <svg class="h-16 w-16 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a2.25 2.25 0 002.25-2.25V5.25a2.25 2.25 0 00-2.25-2.25H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+              </svg>
+              <p class="text-sm">项目截图即将上传</p>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <!-- Content -->
+        <ScrollReveal client:visible delay={0.2}>
+          <div class="prose prose-gray max-w-none">
+            <h2 class="heading-2 mb-4">项目概述</h2>
+            <p class="text-body mb-6">
+              为康宁公司 MT&E 部门设计并实现了完整的端到端 RAG（检索增强生成）知识库更新流水线。系统自动化了文档入库、解析和知识图谱构建的全生命周期管理。
+            </p>
+
+            <h2 class="heading-2 mb-4 mt-10">核心功能</h2>
+            <ul class="space-y-3 mb-6">
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>自动触发：</strong>集成 Power Automate，自动检测新文档并触发入库流水线，无需人工干预。
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>双链路入库：</strong>实现 LightRAG 和 RAGAnything 并行入库路径，支持结构化和非结构化文档类型。
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>文档解析：</strong>使用 MinerU 进行高保真文档解析，处理包含表格、图片和多栏文本的复杂布局。
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>状态监控：</strong>基于 SQLite 构建全流程状态跟踪，支持错误重试、进度监控和审计追踪。
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>动态更新：</strong>深入修改开源框架源码，实现知识库节点按文件精确删除，支持动态增删更新操作。
+              </li>
+            </ul>
+
+            <h2 class="heading-2 mb-4 mt-10">技术架构</h2>
+            <p class="text-body mb-6">
+              流水线采用模块化架构：Power Automate 监控 SharePoint 中的新上传文件，触发 Python 后端服务，通过 MinerU 解析后路由至 LightRAG（基于图的检索）或 RAGAnything（多模态内容）。SQLite 作为中心状态存储，跟踪每个文档在各阶段的处理状态。
+            </p>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

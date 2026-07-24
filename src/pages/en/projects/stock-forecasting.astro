@@ -1,0 +1,85 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Footer from '../../../components/Footer.astro';
+import ScrollReveal from '../../../components/ScrollReveal';
+---
+
+<Layout title="Stock Price Forecasting | Felix Wang" description="Multimodal short-term stock price forecasting with FinBERT and temporal neural networks">
+  <Navbar />
+
+  <main class="flex-1 pt-20 md:pt-24">
+    <section class="section-padding">
+      <div class="container-custom max-w-4xl">
+        <!-- Back link -->
+        <ScrollReveal client:visible>
+          <a href="/en/projects" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 transition-colors mb-8">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            Back to Projects
+          </a>
+        </ScrollReveal>
+
+        <!-- Title -->
+        <ScrollReveal client:visible>
+          <h1 class="heading-1 mb-4">Short-Term Stock Price Forecasting</h1>
+          <p class="text-body text-lg mb-6">CSCI-566 Course Project at USC — Multimodal financial prediction framework</p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">FinBERT</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">LSTM</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">GRU</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">TCN</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">Cross-Attention</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">PyTorch</span>
+          </div>
+        </ScrollReveal>
+
+        <!-- Screenshot placeholder -->
+        <ScrollReveal client:visible delay={0.1}>
+          <div class="mb-12 rounded-2xl bg-gradient-to-br from-primary-50 to-blue-50 border border-gray-100 h-64 md:h-80 flex items-center justify-center">
+            <div class="text-center text-gray-400">
+              <svg class="h-16 w-16 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a2.25 2.25 0 002.25-2.25V5.25a2.25 2.25 0 00-2.25-2.25H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+              </svg>
+              <p class="text-sm">Project screenshot coming soon</p>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <!-- Content -->
+        <ScrollReveal client:visible delay={0.2}>
+          <div class="prose prose-gray max-w-none">
+            <h2 class="heading-2 mb-4">Overview</h2>
+            <p class="text-body mb-6">
+              Developed a multimodal stock forecasting framework as part of USC's CSCI-566 Deep Learning course. The system combines financial news sentiment, historical market data, and technical indicators to predict short-term stock price movements.
+            </p>
+
+            <h2 class="heading-2 mb-4 mt-10">Technical Approach</h2>
+            <ul class="space-y-3 mb-6">
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>News Encoding:</strong> Used FinBERT to extract sentiment features from financial news articles, capturing market sentiment that influences price movements.
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>Temporal Networks:</strong> Implemented and compared multiple temporal architectures (LSTM, GRU, TCN) for capturing time-series patterns in market data.
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>Cross-Attention Fusion:</strong> Designed a cross-attention mechanism to fuse text-based sentiment features with numerical market features, allowing the model to learn correlations between news and price action.
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>Technical Indicators:</strong> Incorporated common trading indicators (RSI, MACD, Bollinger Bands, etc.) as additional input features.
+              </li>
+            </ul>
+
+            <h2 class="heading-2 mb-4 mt-10">Results</h2>
+            <p class="text-body mb-6">
+              Achieved predictive performance comparable to reported benchmarks for short-term stock movement prediction, demonstrating the effectiveness of multimodal fusion in financial forecasting tasks.
+            </p>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

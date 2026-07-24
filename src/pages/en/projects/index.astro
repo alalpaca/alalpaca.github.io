@@ -1,10 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import ProjectCard from '../../components/ProjectCard.astro';
-import ScrollReveal from '../../components/ScrollReveal';
-import { useTranslations } from '../../i18n/utils';
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Footer from '../../../components/Footer.astro';
+import ProjectCard from '../../../components/ProjectCard.astro';
+import ScrollReveal from '../../../components/ScrollReveal';
+import { useTranslations } from '../../../i18n/utils';
 
 const t = useTranslations('en');
 
@@ -13,28 +13,28 @@ const projects = [
     title: 'RAG Knowledge Base Pipeline',
     description: 'Designed and implemented an end-to-end RAG knowledge base update pipeline integrating Power Automate automated triggers, MinerU document parsing, and LightRAG/RAGAnything dual-path ingestion. Introduced SQLite for full-process state monitoring and error retry. Modified open-source framework source code to enable precise file-level node deletion for dynamic knowledge base updates.',
     tags: ['RAG', 'LightRAG', 'RAGAnything', 'Power Automate', 'SQLite', 'Python'],
-    projectUrl: '#',
+    projectUrl: '/en/projects/rag-pipeline',
     codeUrl: '#',
   },
   {
     title: 'PLC Alarm Diagnosis ReAct Agent',
     description: 'Built an industrial PLC alarm diagnosis ReAct Agent using LangGraph, parsing 29 subroutines (6,820 causal edges) of Mitsubishi Q-series PLCs. Achieved automatic cross-program alarm causal chain backtracking to the physical I/O layer, delivered with a Gradio frontend and FastAPI interface as a complete interactive system.',
     tags: ['LangGraph', 'ReAct Agent', 'Gradio', 'FastAPI', 'Python'],
-    projectUrl: '#',
+    projectUrl: '/en/projects/plc-agent',
     codeUrl: '#',
   },
   {
     title: 'Short-Term Stock Price Forecasting',
     description: 'Developed a multimodal stock forecasting framework combining financial news, market data, and technical indicators using FinBERT, temporal neural networks (LSTM/GRU/TCN), and cross-attention fusion, achieving predictive performance comparable to reported benchmarks for short-term stock movement prediction.',
     tags: ['FinBERT', 'LSTM', 'GRU', 'TCN', 'Cross-Attention', 'PyTorch'],
-    projectUrl: '#',
+    projectUrl: '/en/projects/stock-forecasting',
     codeUrl: '#',
   },
   {
     title: 'Automated Data Annotation System',
     description: 'Designed an end-to-end automated entity annotation system for scientific literature, integrating rule-based NLP, deep learning (BiLSTM-CRF with sliding-window segmentation), and LLM-based methods (OneKE). Built a multi-model ensemble with confidence fusion and RoBERTa-based verifier, achieving ~83% annotation precision, deployed with Django and Vue3.',
     tags: ['BiLSTM-CRF', 'RoBERTa', 'OneKE', 'Django', 'Vue3', 'NLP'],
-    projectUrl: '#',
+    projectUrl: '/en/projects/data-annotation',
     codeUrl: '#',
   },
 ];
@@ -57,7 +57,7 @@ const projects = [
         <!-- Project Grid -->
         <div class="grid gap-6 sm:grid-cols-2">
           {projects.map((project, index) => (
-            <ScrollReveal client:visible delay={index * 0.12} direction="up">
+            <ScrollReveal client:visible delay={index * 0.12} direction="up" className="h-full">
               <ProjectCard {...project} />
             </ScrollReveal>
           ))}

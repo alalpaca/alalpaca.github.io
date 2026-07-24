@@ -1,0 +1,81 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Footer from '../../../components/Footer.astro';
+import ScrollReveal from '../../../components/ScrollReveal';
+---
+
+<Layout title="短期股价预测系统 | 王云飞" description="多模态短期股价预测框架">
+  <Navbar />
+
+  <main class="flex-1 pt-20 md:pt-24">
+    <section class="section-padding">
+      <div class="container-custom max-w-4xl">
+        <ScrollReveal client:visible>
+          <a href="/zh/projects" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 transition-colors mb-8">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            返回项目列表
+          </a>
+        </ScrollReveal>
+
+        <ScrollReveal client:visible>
+          <h1 class="heading-1 mb-4">短期股价预测系统</h1>
+          <p class="text-body text-lg mb-6">USC CSCI-566 课程项目 — 多模态金融预测框架</p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">FinBERT</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">LSTM</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">GRU</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">TCN</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">交叉注意力</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">PyTorch</span>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal client:visible delay={0.1}>
+          <div class="mb-12 rounded-2xl bg-gradient-to-br from-primary-50 to-blue-50 border border-gray-100 h-64 md:h-80 flex items-center justify-center">
+            <div class="text-center text-gray-400">
+              <svg class="h-16 w-16 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a2.25 2.25 0 002.25-2.25V5.25a2.25 2.25 0 00-2.25-2.25H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+              </svg>
+              <p class="text-sm">项目截图即将上传</p>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal client:visible delay={0.2}>
+          <div class="prose prose-gray max-w-none">
+            <h2 class="heading-2 mb-4">项目概述</h2>
+            <p class="text-body mb-6">
+              作为 USC CSCI-566 深度学习课程项目，开发了多模态股票预测框架。系统融合金融新闻情感、历史市场数据和技术指标，预测短期股价走势。
+            </p>
+
+            <h2 class="heading-2 mb-4 mt-10">技术方案</h2>
+            <ul class="space-y-3 mb-6">
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>新闻编码：</strong>使用 FinBERT 从金融新闻中提取情感特征，捕捉影响价格波动的市场情绪。
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>时序网络：</strong>实现并对比了多种时序架构（LSTM、GRU、TCN），用于捕捉市场数据中的时间序列模式。
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>交叉注意力融合：</strong>设计交叉注意力机制融合文本情感特征与数值市场特征，使模型学习新闻与价格行为之间的关联。
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>技术指标：</strong>引入常见交易指标（RSI、MACD、布林带等）作为额外输入特征。
+              </li>
+            </ul>
+
+            <h2 class="heading-2 mb-4 mt-10">实验结果</h2>
+            <p class="text-body mb-6">
+              在短期股价趋势预测任务上达到了与已报告基准相当的预测性能，验证了多模态融合在金融预测任务中的有效性。
+            </p>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

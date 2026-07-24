@@ -1,0 +1,85 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Footer from '../../../components/Footer.astro';
+import ScrollReveal from '../../../components/ScrollReveal';
+---
+
+<Layout title="Automated Data Annotation | Felix Wang" description="End-to-end automated entity annotation system for scientific literature">
+  <Navbar />
+
+  <main class="flex-1 pt-20 md:pt-24">
+    <section class="section-padding">
+      <div class="container-custom max-w-4xl">
+        <!-- Back link -->
+        <ScrollReveal client:visible>
+          <a href="/en/projects" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 transition-colors mb-8">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            Back to Projects
+          </a>
+        </ScrollReveal>
+
+        <!-- Title -->
+        <ScrollReveal client:visible>
+          <h1 class="heading-1 mb-4">Automated Data Annotation System</h1>
+          <p class="text-body text-lg mb-6">Research project at Shanghai University — Automated entity annotation for scientific literature</p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">BiLSTM-CRF</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">RoBERTa</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">OneKE</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">Django</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">Vue3</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">NLP</span>
+          </div>
+        </ScrollReveal>
+
+        <!-- Screenshot placeholder -->
+        <ScrollReveal client:visible delay={0.1}>
+          <div class="mb-12 rounded-2xl bg-gradient-to-br from-primary-50 to-blue-50 border border-gray-100 h-64 md:h-80 flex items-center justify-center">
+            <div class="text-center text-gray-400">
+              <svg class="h-16 w-16 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a2.25 2.25 0 002.25-2.25V5.25a2.25 2.25 0 00-2.25-2.25H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+              </svg>
+              <p class="text-sm">Project screenshot coming soon</p>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <!-- Content -->
+        <ScrollReveal client:visible delay={0.2}>
+          <div class="prose prose-gray max-w-none">
+            <h2 class="heading-2 mb-4">Overview</h2>
+            <p class="text-body mb-6">
+              Designed an end-to-end automated entity annotation system for scientific literature as a research assistant at Shanghai University. The system combines multiple NLP techniques to achieve high-precision entity extraction from academic papers, significantly reducing manual annotation effort.
+            </p>
+
+            <h2 class="heading-2 mb-4 mt-10">Technical Approach</h2>
+            <ul class="space-y-3 mb-6">
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>Multi-Method Integration:</strong> Combined rule-based NLP, deep learning (BiLSTM-CRF with sliding-window segmentation for long documents), and LLM-based methods (OneKE) for comprehensive entity extraction.
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>Ensemble with Confidence Fusion:</strong> Built a multi-model ensemble that aggregates predictions from different methods using confidence scores, improving overall precision.
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>RoBERTa Verifier:</strong> Trained a RoBERTa-based verification model as a final quality gate, filtering out false positive annotations.
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>Production Deployment:</strong> Deployed the complete pipeline as a web application using Django (backend) and Vue3 (frontend), enabling researchers to annotate documents through an intuitive interface.
+              </li>
+            </ul>
+
+            <h2 class="heading-2 mb-4 mt-10">Results</h2>
+            <p class="text-body mb-6">
+              Achieved approximately 83% annotation precision on scientific literature datasets. The system was registered as a software copyright ("Automatic Annotation and Mining Platform for Literature Information V1.0", October 2024).
+            </p>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

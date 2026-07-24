@@ -14,21 +14,21 @@ const featuredProjects = [
     title: 'RAG 知识库更新 Pipeline',
     description: '端到端 RAG 知识库更新流水线，集成 Power Automate 自动触发、MinerU 文档解析与 LightRAG/RAGAnything 双链路入库，支持全流程状态监控。',
     tags: ['RAG', 'LightRAG', 'Power Automate', 'SQLite'],
-    projectUrl: '#',
+    projectUrl: '/zh/projects/rag-pipeline',
     codeUrl: '#',
   },
   {
     title: 'PLC 报警诊断 Agent',
     description: '基于 LangGraph 的工业 PLC 报警诊断 ReAct Agent，解析 29 个子程序含 6820 条因果边，实现跨程序报警因果链自动回溯。',
     tags: ['LangGraph', 'ReAct Agent', 'Gradio', 'FastAPI'],
-    projectUrl: '#',
+    projectUrl: '/zh/projects/plc-agent',
     codeUrl: '#',
   },
   {
     title: '短期股价预测系统',
     description: '多模态股票预测框架，融合金融新闻、市场数据和技术指标，使用 FinBERT 和时序神经网络实现短期股价预测。',
     tags: ['FinBERT', 'LSTM/GRU/TCN', '多模态', '深度学习'],
-    projectUrl: '#',
+    projectUrl: '/zh/projects/stock-forecasting',
     codeUrl: '#',
   },
 ];
@@ -53,7 +53,7 @@ const featuredProjects = [
 
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featuredProjects.map((project, index) => (
-            <ScrollReveal client:visible delay={index * 0.15} direction="up">
+            <ScrollReveal client:visible delay={index * 0.15} direction="up" className="h-full">
               <ProjectCard {...project} />
             </ScrollReveal>
           ))}

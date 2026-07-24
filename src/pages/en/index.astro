@@ -14,21 +14,21 @@ const featuredProjects = [
     title: 'RAG Knowledge Base Pipeline',
     description: 'End-to-end RAG knowledge base update pipeline with Power Automate triggers, MinerU parsing, and LightRAG/RAGAnything dual-path ingestion with full-process state monitoring.',
     tags: ['RAG', 'LightRAG', 'Power Automate', 'SQLite'],
-    projectUrl: '#',
+    projectUrl: '/en/projects/rag-pipeline',
     codeUrl: '#',
   },
   {
     title: 'PLC Alarm Diagnosis Agent',
     description: 'Industrial PLC alarm diagnosis ReAct Agent built with LangGraph, parsing 29 subroutines with 6,820 causal edges for automatic alarm root-cause tracing.',
     tags: ['LangGraph', 'ReAct Agent', 'Gradio', 'FastAPI'],
-    projectUrl: '#',
+    projectUrl: '/en/projects/plc-agent',
     codeUrl: '#',
   },
   {
     title: 'Stock Price Forecasting',
     description: 'Multimodal stock forecasting framework combining financial news, market data, and technical indicators using FinBERT and temporal neural networks.',
     tags: ['FinBERT', 'LSTM/GRU/TCN', 'Multimodal', 'Deep Learning'],
-    projectUrl: '#',
+    projectUrl: '/en/projects/stock-forecasting',
     codeUrl: '#',
   },
 ];
@@ -53,7 +53,7 @@ const featuredProjects = [
 
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featuredProjects.map((project, index) => (
-            <ScrollReveal client:visible delay={index * 0.15} direction="up">
+            <ScrollReveal client:visible delay={index * 0.15} direction="up" className="h-full">
               <ProjectCard {...project} />
             </ScrollReveal>
           ))}

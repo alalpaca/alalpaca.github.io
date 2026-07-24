@@ -1,0 +1,81 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Footer from '../../../components/Footer.astro';
+import ScrollReveal from '../../../components/ScrollReveal';
+---
+
+<Layout title="科学文献自动标注系统 | 王云飞" description="面向科学文献的端到端自动实体标注系统">
+  <Navbar />
+
+  <main class="flex-1 pt-20 md:pt-24">
+    <section class="section-padding">
+      <div class="container-custom max-w-4xl">
+        <ScrollReveal client:visible>
+          <a href="/zh/projects" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 transition-colors mb-8">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            返回项目列表
+          </a>
+        </ScrollReveal>
+
+        <ScrollReveal client:visible>
+          <h1 class="heading-1 mb-4">科学文献自动标注系统</h1>
+          <p class="text-body text-lg mb-6">上海大学研究项目 — 面向科学文献的自动化实体标注</p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">BiLSTM-CRF</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">RoBERTa</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">OneKE</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">Django</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">Vue3</span>
+            <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">NLP</span>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal client:visible delay={0.1}>
+          <div class="mb-12 rounded-2xl bg-gradient-to-br from-primary-50 to-blue-50 border border-gray-100 h-64 md:h-80 flex items-center justify-center">
+            <div class="text-center text-gray-400">
+              <svg class="h-16 w-16 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a2.25 2.25 0 002.25-2.25V5.25a2.25 2.25 0 00-2.25-2.25H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+              </svg>
+              <p class="text-sm">项目截图即将上传</p>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal client:visible delay={0.2}>
+          <div class="prose prose-gray max-w-none">
+            <h2 class="heading-2 mb-4">项目概述</h2>
+            <p class="text-body mb-6">
+              在上海大学担任科研助理期间，设计了面向科学文献的端到端自动实体标注系统。系统融合多种 NLP 技术实现学术论文中的高精度实体抽取，显著减少人工标注工作量。
+            </p>
+
+            <h2 class="heading-2 mb-4 mt-10">技术方案</h2>
+            <ul class="space-y-3 mb-6">
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>多方法融合：</strong>结合基于规则的 NLP、深度学习（BiLSTM-CRF + 滑动窗口分割处理长文档）和大模型方法（OneKE），实现全面的实体抽取。
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>集成 + 置信度融合：</strong>构建多模型集成系统，利用置信度分数聚合不同方法的预测结果，提升整体精度。
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>RoBERTa 验证器：</strong>训练基于 RoBERTa 的验证模型作为最终质量关卡，过滤假阳性标注。
+              </li>
+              <li class="text-body pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-primary-400">
+                <strong>生产部署：</strong>使用 Django（后端）和 Vue3（前端）将完整流水线部署为 Web 应用，研究人员可通过直观的界面进行文档标注。
+              </li>
+            </ul>
+
+            <h2 class="heading-2 mb-4 mt-10">成果</h2>
+            <p class="text-body mb-6">
+              在科学文献数据集上实现约 83% 的标注精度。该系统已注册软件著作权（"文献信息自动标注与挖掘平台 V1.0"，2024 年 10 月）。
+            </p>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

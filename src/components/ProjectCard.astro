@@ -15,7 +15,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<article class="card group overflow-hidden">
+<article class="card group overflow-hidden h-full flex flex-col">
   <!-- Project Image -->
   {image ? (
     <div class="mb-4 -mx-6 -mt-6 overflow-hidden">
@@ -39,7 +39,7 @@ const t = useTranslations(lang);
     {title}
   </h3>
 
-  <p class="text-sm text-gray-500 leading-relaxed mb-4">
+  <p class="text-sm text-gray-500 leading-relaxed mb-4 flex-1">
     {description}
   </p>
 
@@ -53,17 +53,15 @@ const t = useTranslations(lang);
   </div>
 
   <!-- Links -->
-  <div class="flex items-center gap-3 pt-2 border-t border-gray-50">
+  <div class="flex items-center gap-3 pt-2 border-t border-gray-50 mt-auto">
     {projectUrl && (
       <a
         href={projectUrl}
-        target="_blank"
-        rel="noopener noreferrer"
         class="inline-flex items-center gap-1.5 text-sm font-medium text-primary-600 transition-colors hover:text-primary-700"
       >
         {t('projects.viewProject')}
         <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
         </svg>
       </a>
     )}
