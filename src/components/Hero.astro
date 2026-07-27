@@ -1,5 +1,8 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import SplitText from './SplitText';
+import GradientText from './GradientText';
+import BlurText from './BlurText';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -10,7 +13,7 @@ const t = useTranslations(lang);
   <div class="absolute inset-0 -z-10">
     <div class="absolute top-20 left-10 h-72 w-72 rounded-full bg-primary-50 opacity-60 blur-3xl"></div>
     <div class="absolute bottom-20 right-10 h-96 w-96 rounded-full bg-blue-50 opacity-40 blur-3xl"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-gradient-to-br from-primary-25 to-transparent opacity-30 blur-3xl"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-gradient-to-br from-primary-50/50 to-transparent opacity-30 blur-3xl"></div>
   </div>
 
   <div class="container-custom pt-32 pb-20">
@@ -20,25 +23,35 @@ const t = useTranslations(lang);
         {t('hero.greeting')}
       </p>
 
-      <!-- Name -->
-      <h1 class="heading-1 mb-6 opacity-0 animate-slide-up" style="animation-delay: 0.4s;">
-        <span class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-600 bg-clip-text text-transparent">
-          {t('hero.name')}
-        </span>
+      <!-- Name with SplitText animation -->
+      <h1 class="heading-1 mb-6">
+        <SplitText
+          client:visible
+          text={t('hero.name')}
+          className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-600 bg-clip-text text-transparent"
+          delay={0.3}
+        />
       </h1>
 
-      <!-- Title -->
-      <p class="mb-6 text-xl font-medium text-gray-500 sm:text-2xl opacity-0 animate-slide-up" style="animation-delay: 0.6s;">
-        {t('hero.title')}
-      </p>
+      <!-- Title with GradientText animation -->
+      <div class="mb-6 text-xl font-medium sm:text-2xl opacity-0 animate-slide-up" style="animation-delay: 0.8s;">
+        <GradientText client:visible>
+          {t('hero.title')}
+        </GradientText>
+      </div>
 
-      <!-- Description -->
-      <p class="mb-10 max-w-xl text-body opacity-0 animate-slide-up" style="animation-delay: 0.8s;">
-        {t('hero.description')}
-      </p>
+      <!-- Description with BlurText animation -->
+      <div class="mb-10 max-w-xl">
+        <BlurText
+          client:visible
+          text={t('hero.description')}
+          className="text-body"
+          delay={1.0}
+        />
+      </div>
 
       <!-- CTAs -->
-      <div class="flex flex-wrap gap-4 opacity-0 animate-slide-up" style="animation-delay: 1s;">
+      <div class="flex flex-wrap gap-4 opacity-0 animate-slide-up" style="animation-delay: 1.3s;">
         <a href={`/${lang}/projects`} class="btn-primary">
           {t('hero.cta')}
           <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -52,7 +65,7 @@ const t = useTranslations(lang);
     </div>
 
     <!-- Scroll indicator -->
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style="animation-delay: 1.5s;">
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style="animation-delay: 2s;">
       <div class="flex flex-col items-center gap-2 text-gray-400">
         <span class="text-xs font-medium uppercase tracking-widest">Scroll</span>
         <div class="h-10 w-px bg-gradient-to-b from-gray-300 to-transparent animate-pulse"></div>

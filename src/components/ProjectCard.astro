@@ -15,7 +15,9 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<article class="card group overflow-hidden h-full flex flex-col">
+<article class="spotlight-card card group overflow-hidden h-full flex flex-col relative">
+  <!-- Spotlight overlay -->
+  <div class="spotlight-overlay pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 rounded-2xl"></div>
   <!-- Project Image -->
   {image ? (
     <div class="mb-4 -mx-6 -mt-6 overflow-hidden">
@@ -80,3 +82,23 @@ const t = useTranslations(lang);
     )}
   </div>
 </article>
+
+<script>
+  document.querySelectorAll('.spotlight-card').forEach((card) => {
+    const overlay = card.querySelector('.spotlight-overlay') as HTMLElement;
+    if (!overlay) return;
+
+    card.addEventListener('mousemove', (e) => {
+      const event = e as MouseEvent;
+      const rect = (card as HTMLElement).getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      overlay.style.background = `radial-gradient(300px circle at ${x}px ${y}px, rgba(59, 130, 246, 0.08), transparent 60%)`;
+      overlay.style.opacity = '1';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      overlay.style.opacity = '0';
+    });
+  });
+</script>
