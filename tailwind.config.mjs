@@ -22,10 +22,10 @@ export default {
         sans: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif'],
       },
       animation: {
-        'fade-in': 'fadeIn 0.6s ease-out forwards',
-        'slide-up': 'slideUp 0.6s ease-out forwards',
-        'slide-in-left': 'slideInLeft 0.6s ease-out forwards',
-        'slide-in-right': 'slideInRight 0.6s ease-out forwards',
+        'fade-in': 'fadeIn 1.2s ease-out forwards',
+        'slide-up': 'slideUp 1.2s ease-out forwards',
+        'slide-in-left': 'slideInLeft 1.2s ease-out forwards',
+        'slide-in-right': 'slideInRight 1.2s ease-out forwards',
       },
       keyframes: {
         fadeIn: {

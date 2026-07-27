@@ -18,7 +18,7 @@ export default function BlurText({ text, className = '', delay = 0 }: Props) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.05,
+        staggerChildren: 0.12,
         delayChildren: delay,
       },
     },
@@ -27,15 +27,15 @@ export default function BlurText({ text, className = '', delay = 0 }: Props) {
   const child = {
     hidden: {
       opacity: 0,
-      filter: 'blur(8px)',
-      y: 5,
+      filter: 'blur(12px)',
+      y: 8,
     },
     visible: {
       opacity: 1,
       filter: 'blur(0px)',
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.9,
         ease: [0.25, 0.4, 0.25, 1],
       },
     },

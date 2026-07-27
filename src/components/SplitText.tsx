@@ -18,7 +18,7 @@ export default function SplitText({ text, className = '', delay = 0 }: Props) {
     visible: (i = 1) => ({
       opacity: 1,
       transition: {
-        staggerChildren: 0.04,
+        staggerChildren: 0.12,
         delayChildren: delay,
       },
     }),
@@ -27,8 +27,8 @@ export default function SplitText({ text, className = '', delay = 0 }: Props) {
   const child = {
     hidden: {
       opacity: 0,
-      y: 20,
-      filter: 'blur(4px)',
+      y: 30,
+      filter: 'blur(6px)',
     },
     visible: {
       opacity: 1,
@@ -36,8 +36,9 @@ export default function SplitText({ text, className = '', delay = 0 }: Props) {
       filter: 'blur(0px)',
       transition: {
         type: 'spring',
-        damping: 12,
-        stiffness: 200,
+        damping: 10,
+        stiffness: 120,
+        duration: 0.8,
       },
     },
   };
@@ -45,7 +46,7 @@ export default function SplitText({ text, className = '', delay = 0 }: Props) {
   return (
     <motion.span
       ref={ref}
-      className={`inline-flex flex-wrap ${className}`}
+      className={`inline-flex flex-wrap overflow-visible pb-2 ${className}`}
       variants={container}
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
