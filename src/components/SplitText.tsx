@@ -46,7 +46,7 @@ export default function SplitText({ text, className = '', delay = 0 }: Props) {
   return (
     <motion.span
       ref={ref}
-      className={`inline-flex flex-wrap overflow-visible pb-2 ${className}`}
+      className={`inline-flex flex-wrap overflow-visible py-1 ${className}`}
       variants={container}
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
