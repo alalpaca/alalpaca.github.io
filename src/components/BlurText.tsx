@@ -1,5 +1,5 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 interface Props {
   text: string;
@@ -8,13 +8,16 @@ interface Props {
 }
 
 export default function BlurText({ text, className = '', delay = 0 }: Props) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const words = text.split(' ');
 
   const container = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
@@ -41,13 +44,21 @@ export default function BlurText({ text, className = '', delay = 0 }: Props) {
     },
   };
 
+  // Before hydration, render invisible placeholder to prevent flash
+  if (!isMounted) {
+    return (
+      <p className={`opacity-0 ${className}`}>
+        {text}
+      </p>
+    );
+  }
+
   return (
     <motion.p
-      ref={ref}
       className={className}
       variants={container}
       initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
+      animate="visible"
     >
       {words.map((word, index) => (
         <motion.span

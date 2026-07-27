@@ -1,5 +1,5 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 interface Props {
   text: string;
@@ -8,20 +8,23 @@ interface Props {
 }
 
 export default function SplitText({ text, className = '', delay = 0 }: Props) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const characters = text.split('');
 
   const container = {
-    hidden: { opacity: 0 },
-    visible: (i = 1) => ({
+    hidden: { opacity: 1 },
+    visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.12,
         delayChildren: delay,
       },
-    }),
+    },
   };
 
   const child = {
@@ -43,13 +46,21 @@ export default function SplitText({ text, className = '', delay = 0 }: Props) {
     },
   };
 
+  // Before hydration, render invisible placeholder to prevent flash
+  if (!isMounted) {
+    return (
+      <span className={`inline-flex flex-wrap overflow-visible py-1 opacity-0 ${className}`}>
+        {text}
+      </span>
+    );
+  }
+
   return (
     <motion.span
-      ref={ref}
       className={`inline-flex flex-wrap overflow-visible py-1 ${className}`}
       variants={container}
       initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
+      animate="visible"
     >
       {characters.map((char, index) => (
         <motion.span
