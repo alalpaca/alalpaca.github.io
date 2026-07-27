@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 interface Props {
@@ -8,70 +7,32 @@ interface Props {
 }
 
 export default function SplitText({ text, className = '', delay = 0 }: Props) {
-  const [isMounted, setIsMounted] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
+    const timer = setTimeout(() => setShouldAnimate(true), 100);
+    return () => clearTimeout(timer);
   }, []);
 
   const characters = text.split('');
 
-  const container = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: delay,
-      },
-    },
-  };
-
-  const child = {
-    hidden: {
-      opacity: 0,
-      y: 30,
-      filter: 'blur(6px)',
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      transition: {
-        type: 'spring',
-        damping: 10,
-        stiffness: 120,
-        duration: 0.8,
-      },
-    },
-  };
-
-  // Before hydration, render invisible placeholder to prevent flash
-  if (!isMounted) {
-    return (
-      <span className={`inline-flex flex-wrap overflow-visible py-1 opacity-0 ${className}`}>
-        {text}
-      </span>
-    );
-  }
-
   return (
-    <motion.span
-      className={`inline-flex flex-wrap overflow-visible py-1 ${className}`}
-      variants={container}
-      initial="hidden"
-      animate="visible"
-    >
+    <span className={`inline-flex flex-wrap overflow-visible py-1 ${className}`}>
       {characters.map((char, index) => (
-        <motion.span
+        <span
           key={index}
-          variants={child}
           className="inline-block"
-          style={{ whiteSpace: char === ' ' ? 'pre' : 'normal' }}
+          style={{
+            opacity: shouldAnimate ? 1 : 0,
+            transform: shouldAnimate ? 'translateY(0)' : 'translateY(30px)',
+            filter: shouldAnimate ? 'blur(0px)' : 'blur(6px)',
+            transition: `all 0.8s cubic-bezier(0.25, 0.4, 0.25, 1) ${delay + index * 0.12}s`,
+            whiteSpace: char === ' ' ? 'pre' : 'normal',
+          }}
         >
           {char === ' ' ? '\u00A0' : char}
-        </motion.span>
+        </span>
       ))}
-    </motion.span>
+    </span>
   );
 }

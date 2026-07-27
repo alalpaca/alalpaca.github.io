@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 interface Props {
@@ -8,67 +7,31 @@ interface Props {
 }
 
 export default function BlurText({ text, className = '', delay = 0 }: Props) {
-  const [isMounted, setIsMounted] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
+    const timer = setTimeout(() => setShouldAnimate(true), 100);
+    return () => clearTimeout(timer);
   }, []);
 
   const words = text.split(' ');
 
-  const container = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: delay,
-      },
-    },
-  };
-
-  const child = {
-    hidden: {
-      opacity: 0,
-      filter: 'blur(12px)',
-      y: 8,
-    },
-    visible: {
-      opacity: 1,
-      filter: 'blur(0px)',
-      y: 0,
-      transition: {
-        duration: 0.9,
-        ease: [0.25, 0.4, 0.25, 1],
-      },
-    },
-  };
-
-  // Before hydration, render invisible placeholder to prevent flash
-  if (!isMounted) {
-    return (
-      <p className={`opacity-0 ${className}`}>
-        {text}
-      </p>
-    );
-  }
-
   return (
-    <motion.p
-      className={className}
-      variants={container}
-      initial="hidden"
-      animate="visible"
-    >
+    <p className={className}>
       {words.map((word, index) => (
-        <motion.span
+        <span
           key={index}
-          variants={child}
           className="inline-block mr-[0.3em]"
+          style={{
+            opacity: shouldAnimate ? 1 : 0,
+            transform: shouldAnimate ? 'translateY(0)' : 'translateY(8px)',
+            filter: shouldAnimate ? 'blur(0px)' : 'blur(12px)',
+            transition: `all 0.9s cubic-bezier(0.25, 0.4, 0.25, 1) ${delay + index * 0.12}s`,
+          }}
         >
           {word}
-        </motion.span>
+        </span>
       ))}
-    </motion.p>
+    </p>
   );
 }
