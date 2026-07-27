@@ -3,17 +3,29 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import SplitText from './SplitText';
 import GradientText from './GradientText';
 import BlurText from './BlurText';
+import LiquidEther from './LiquidEther';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <section class="relative min-h-screen flex items-center overflow-hidden">
-  <!-- Background decoration -->
-  <div class="absolute inset-0 -z-10">
-    <div class="absolute top-20 left-10 h-72 w-72 rounded-full bg-primary-50 opacity-60 blur-3xl"></div>
-    <div class="absolute bottom-20 right-10 h-96 w-96 rounded-full bg-blue-50 opacity-40 blur-3xl"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-gradient-to-br from-primary-50/50 to-transparent opacity-30 blur-3xl"></div>
+  <!-- Liquid Ether background -->
+  <div class="absolute inset-0 -z-10" style="opacity: 0.6;">
+    <LiquidEther
+      client:load
+      colors={['#93c5fd', '#60a5fa', '#dbeafe']}
+      mouseForce={15}
+      cursorSize={100}
+      resolution={0.4}
+      autoDemo={true}
+      autoSpeed={0.3}
+      autoIntensity={1.5}
+      autoResumeDelay={1000}
+      autoRampDuration={0.6}
+      className="w-full h-full"
+      style={{ position: 'absolute', inset: 0 }}
+    />
   </div>
 
   <div class="container-custom pt-32 pb-20">

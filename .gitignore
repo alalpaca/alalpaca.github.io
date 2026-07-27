@@ -21,3 +21,6 @@ Thumbs.db
 
 # Personal documents (resume, etc.)
 support_doc/
+
+# Reference files (not part of the project)
+frontend_effect_storage/
