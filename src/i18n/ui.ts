@@ -18,9 +18,9 @@ export const ui = {
     'hero.greeting': 'Hello, I\'m',
     'hero.name': 'Felix Wang',
     'hero.title': 'AI Engineer & Machine Learning Developer',
-    'hero.description': 'MSAI student at USC, focusing on AI Agent and RAG system development. Seeking full-time opportunities in AI/ML engineering.',
-    'hero.cta': 'View My Work',
-    'hero.contact': 'Get in Touch',
+    'hero.description': 'I build intelligent systems — RAG pipelines, AI agents, and NLP applications that turn research into production.',
+    'hero.cta': 'See My Projects',
+    'hero.contact': 'About Me',
 
     // About
     'about.title': 'About Me',
@@ -61,9 +61,9 @@ export const ui = {
     'hero.greeting': '你好，我是',
     'hero.name': '汪蕴斐 (Felix)',
     'hero.title': 'AI 工程师 & 机器学习开发者',
-    'hero.description': 'USC 人工智能硕士在读，专注 AI Agent 和 RAG 系统开发，寻找 AI/ML 相关全职机会。',
-    'hero.cta': '查看我的作品',
-    'hero.contact': '联系我',
+    'hero.description': '我构建智能系统 — RAG 流水线、AI Agent 和 NLP 应用，将前沿研究转化为生产力。',
+    'hero.cta': '查看项目',
+    'hero.contact': '关于我',
 
     // About
     'about.title': '关于我',
