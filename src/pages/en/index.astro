@@ -41,6 +41,55 @@ const featuredProjects = [
     <!-- Hero Section -->
     <Hero />
 
+    <!-- About Me Preview -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <div class="grid gap-12 lg:grid-cols-5 lg:items-center">
+          <!-- Left: Text -->
+          <div class="lg:col-span-3">
+            <ScrollReveal client:visible>
+              <h2 class="heading-2 mb-6">{t('home.about.title')}</h2>
+              <p class="text-body mb-8">{t('home.about.intro')}</p>
+              <div class="flex flex-wrap gap-4">
+                <a href="/en/about" class="btn-primary">
+                  {t('home.about.cta')}
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                  </svg>
+                </a>
+                <a href="/YunfeiWang_Resume.pdf" target="_blank" class="btn-secondary">
+                  {t('home.about.resume')}
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
+                </a>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          <!-- Right: Highlights -->
+          <div class="lg:col-span-2">
+            <ScrollReveal client:visible delay={0.2} direction="right">
+              <div class="space-y-4">
+                <div class="rounded-xl border border-gray-100 bg-gray-50/50 p-5">
+                  <p class="text-xs font-medium uppercase tracking-wider text-gray-400 mb-1">{t('home.about.highlight1.label')}</p>
+                  <p class="text-sm font-semibold text-gray-900">{t('home.about.highlight1.value')}</p>
+                </div>
+                <div class="rounded-xl border border-gray-100 bg-gray-50/50 p-5">
+                  <p class="text-xs font-medium uppercase tracking-wider text-gray-400 mb-1">{t('home.about.highlight2.label')}</p>
+                  <p class="text-sm font-semibold text-gray-900">{t('home.about.highlight2.value')}</p>
+                </div>
+                <div class="rounded-xl border border-gray-100 bg-gray-50/50 p-5">
+                  <p class="text-xs font-medium uppercase tracking-wider text-gray-400 mb-1">{t('home.about.highlight3.label')}</p>
+                  <p class="text-sm font-semibold text-gray-900">{t('home.about.highlight3.value')}</p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Featured Projects Preview -->
     <section class="section-padding bg-gray-50/50">
       <div class="container-custom">

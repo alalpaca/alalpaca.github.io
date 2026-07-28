@@ -22,6 +22,18 @@ export const ui = {
     'hero.cta': 'See My Projects',
     'hero.contact': 'About Me',
 
+    // Home About Preview
+    'home.about.title': 'About Me',
+    'home.about.intro': 'I\'m an AI/ML engineer studying at USC, currently building intelligent automation systems at Corning Incorporated. My work sits at the intersection of research and engineering — from designing RAG pipelines to building diagnosis agents for industrial systems.',
+    'home.about.highlight1.label': 'Education',
+    'home.about.highlight1.value': 'M.S. Computer Science (AI) — USC',
+    'home.about.highlight2.label': 'Current Role',
+    'home.about.highlight2.value': 'AI Engineer Intern — Corning',
+    'home.about.highlight3.label': 'Achievement',
+    'home.about.highlight3.value': 'Gold Medal — China Innovation Competition',
+    'home.about.cta': 'More About Me',
+    'home.about.resume': 'Download Resume',
+
     // About
     'about.title': 'About Me',
     'about.subtitle': 'Get to know me better',
@@ -64,6 +76,18 @@ export const ui = {
     'hero.description': '我构建智能系统 — RAG 流水线、AI Agent 和 NLP 应用，将前沿研究转化为生产力。',
     'hero.cta': '查看项目',
     'hero.contact': '关于我',
+
+    // Home About Preview
+    'home.about.title': '关于我',
+    'home.about.intro': '我是一名 AI/ML 工程师，就读于南加州大学计算机科学硕士（人工智能方向），目前在康宁公司构建智能自动化系统。我的工作处于研究与工程的交汇处——从设计 RAG 流水线到为工业系统构建诊断 Agent。',
+    'home.about.highlight1.label': '教育',
+    'home.about.highlight1.value': '计算机科学硕士 (AI) — USC',
+    'home.about.highlight2.label': '当前职位',
+    'home.about.highlight2.value': 'AI 工程师实习 — 康宁',
+    'home.about.highlight3.label': '成就',
+    'home.about.highlight3.value': '金奖 — 中国国际大学生创新竞赛',
+    'home.about.cta': '了解更多',
+    'home.about.resume': '下载简历',
 
     // About
     'about.title': '关于我',
