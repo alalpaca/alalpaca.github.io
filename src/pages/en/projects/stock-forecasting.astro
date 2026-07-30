@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import Navbar from '../../../components/Navbar.astro';
 import Footer from '../../../components/Footer.astro';
 import ScrollReveal from '../../../components/ScrollReveal';
+import SpecularButton from '../../../components/SpecularButton';
 ---
 
 <Layout title="Stock Price Forecasting | Felix Wang" description="Multimodal short-term stock price forecasting with FinBERT and temporal neural networks">
@@ -33,6 +34,14 @@ import ScrollReveal from '../../../components/ScrollReveal';
             <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">Cross-Attention</span>
             <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">PyTorch</span>
           </div>
+
+          <!-- GitHub Link -->
+          <SpecularButton
+            client:load
+            href="https://github.com/alalpaca"
+          >
+            View on GitHub
+          </SpecularButton>
         </ScrollReveal>
 
         <!-- Screenshot placeholder -->

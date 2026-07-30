@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import Navbar from '../../../components/Navbar.astro';
 import Footer from '../../../components/Footer.astro';
 import ScrollReveal from '../../../components/ScrollReveal';
+import SpecularButton from '../../../components/SpecularButton';
 ---
 
 <Layout title="短期股价预测系统 | 王云飞" description="多模态短期股价预测框架">
@@ -31,6 +32,14 @@ import ScrollReveal from '../../../components/ScrollReveal';
             <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">交叉注意力</span>
             <span class="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">PyTorch</span>
           </div>
+
+          <!-- GitHub Link -->
+          <SpecularButton
+            client:load
+            href="https://github.com/alalpaca"
+          >
+            View on GitHub
+          </SpecularButton>
         </ScrollReveal>
 
         <ScrollReveal client:visible delay={0.1}>
