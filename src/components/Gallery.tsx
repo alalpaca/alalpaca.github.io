@@ -107,9 +107,6 @@ export default function Gallery({ images, categories = [] }: Props) {
                 alt={selectedImage.alt}
                 className="max-h-[85vh] rounded-lg object-contain"
               />
-              <p className="mt-3 text-center text-sm text-white/80">
-                {selectedImage.alt}
-              </p>
               <button
                 onClick={() => setSelectedImage(null)}
                 className="absolute -top-4 -right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"

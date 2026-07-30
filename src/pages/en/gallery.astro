@@ -5,26 +5,22 @@ import Footer from '../../components/Footer.astro';
 import Gallery from '../../components/Gallery';
 import ScrollReveal from '../../components/ScrollReveal';
 import { useTranslations } from '../../i18n/utils';
+import { galleryImages, categoryLabels } from '../../data/gallery';
 
 const t = useTranslations('en');
 
-// Placeholder images using picsum.photos (replace with your own images)
-const images = [
-  { src: 'https://picsum.photos/seed/photo1/600/400', alt: 'Landscape photography', category: 'Travel' },
-  { src: 'https://picsum.photos/seed/photo2/600/800', alt: 'City skyline at dusk', category: 'Travel' },
-  { src: 'https://picsum.photos/seed/photo3/600/500', alt: 'Mountain hiking trail', category: 'Nature' },
-  { src: 'https://picsum.photos/seed/photo4/600/600', alt: 'Coffee and coding setup', category: 'Life' },
-  { src: 'https://picsum.photos/seed/photo5/600/450', alt: 'Sunset over the ocean', category: 'Nature' },
-  { src: 'https://picsum.photos/seed/photo6/600/700', alt: 'Street photography', category: 'Travel' },
-  { src: 'https://picsum.photos/seed/photo7/600/400', alt: 'Home workspace setup', category: 'Life' },
-  { src: 'https://picsum.photos/seed/photo8/600/550', alt: 'Forest path in autumn', category: 'Nature' },
-  { src: 'https://picsum.photos/seed/photo9/600/650', alt: 'Cooking in the kitchen', category: 'Life' },
-];
+const images = galleryImages.map((img) => ({
+  src: img.src,
+  alt: img.category,
+  category: categoryLabels[img.category].en,
+}));
 
-const categories = ['Travel', 'Nature', 'Life'];
+const categories = Object.values(categoryLabels)
+  .map((label) => label.en)
+  .filter((label) => images.some((img) => img.category === label));
 ---
 
-<Layout title="Gallery | Your Name" description="Photo gallery - moments captured through my lens">
+<Layout title="Gallery | Felix Wang" description="Photo gallery - moments captured through my lens">
   <Navbar />
 
   <main class="flex-1 pt-20 md:pt-24">
