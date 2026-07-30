@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import '../styles/global.css';
+import DeskPet from '../components/DeskPet';
 
 interface Props {
   title?: string;
@@ -23,5 +24,6 @@ const lang = getLangFromUrl(Astro.url);
   </head>
   <body class="min-h-screen flex flex-col">
     <slot />
+    <DeskPet client:idle />
   </body>
 </html>

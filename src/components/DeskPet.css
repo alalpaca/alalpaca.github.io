@@ -1,0 +1,162 @@
+/* ===== Desk Pet — Fixed position bottom-right ===== */
+
+.desk-pet {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.desk-pet > * {
+  pointer-events: auto;
+}
+
+/* ===== Character image ===== */
+
+.desk-pet__character {
+  width: 140px;
+  height: auto;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+  transition: filter 0.3s ease;
+}
+
+.desk-pet__character:hover {
+  filter: drop-shadow(0 6px 20px rgba(59, 130, 246, 0.2));
+}
+
+.desk-pet__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Speech bubble ===== */
+
+.desk-pet__bubble {
+  position: relative;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #374151;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  max-width: 180px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.desk-pet__bubble-tail {
+  position: absolute;
+  bottom: -6px;
+  right: 24px;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  transform: rotate(45deg);
+}
+
+/* ===== Close / minimize button ===== */
+
+.desk-pet__close {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  background: white;
+  color: #9ca3af;
+  font-size: 14px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  z-index: 10;
+}
+
+.desk-pet:hover .desk-pet__close {
+  opacity: 1;
+}
+
+.desk-pet__close:hover {
+  color: #374151;
+  border-color: #9ca3af;
+}
+
+/* ===== Minimized state (small avatar dot) ===== */
+
+.desk-pet__minimized {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 40;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #e5e7eb;
+  background: white;
+  padding: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.desk-pet__minimized-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ===== Responsive: smaller on mobile ===== */
+
+@media (max-width: 767px) {
+  .desk-pet {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .desk-pet__character {
+    width: 90px;
+  }
+
+  .desk-pet__bubble {
+    font-size: 0.75rem;
+    padding: 8px 12px;
+    max-width: 140px;
+  }
+
+  .desk-pet__minimized {
+    bottom: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ===== Reduced motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  .desk-pet__character {
+    animation: none !important;
+  }
+}
